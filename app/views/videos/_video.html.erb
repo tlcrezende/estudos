@@ -5,8 +5,8 @@
       <%= image_tag 'fire.svg' , style: 'pointer-events: none;' %>
     <% end %>
     <div class="font-medium mb-1 text-white mx-2"><%= video.titulo %> - <%= video.canal %></div>
-    <%= form_with(model: video) do |form| %>
-      <%= form.check_box :assistido, class: 'ml-2' %>
+    <%= form_with(model: video, url: video_path(video), method: :patch) do |form| %>
+      <%= form.submit '😊', class: 'p-1 bg-fuchsia-600 text-white rounded-md ml-2 cursor-pointer' %>
     <% end %>
   </div>
 </div>

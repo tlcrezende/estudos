@@ -3,7 +3,7 @@ class VideosController < ApplicationController
 
   # GET /videos or /videos.json
   def index
-    @videos = Video.all
+    @videos = Video.all.nao_assistidos.order(:created_at)
   end
 
   # GET /videos/1 or /videos/1.json
@@ -38,15 +38,8 @@ class VideosController < ApplicationController
 
   # PATCH/PUT /videos/1 or /videos/1.json
   def update
-    respond_to do |format|
-      if @video.update(video_params)
-        format.html { redirect_to video_url(@video), notice: "Video was successfully updated." }
-        format.json { render :show, status: :ok, location: @video }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
-      end
-    end
+    @video.update(assistido: :true)
+    redirect_to root_path, notice: "Video foi marcado como assistido." 
   end
 
   # DELETE /videos/1 or /videos/1.json

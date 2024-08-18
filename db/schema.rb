@@ -32,32 +32,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_17_194222) do
   enable_extension "supabase_vault"
   enable_extension "uuid-ossp"
 
-  create_table "chats", force: :cascade do |t|
-    t.string "questions_and_answers", default: [], array: true
-    t.text "prompt", default: "", null: false
-    t.integer "status", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "resumes", force: :cascade do |t|
-    t.bigint "chat_id", null: false
-    t.integer "years_of_experience", default: 0
-    t.string "favorite_programming_language", default: "Não informado ou não capturado"
-    t.boolean "willing_to_work_onsite", default: false
-    t.boolean "willing_to_use_ruby", default: false
-    t.string "interview_date", default: "Não informado ou não capturado"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["chat_id"], name: "index_resumes_on_chat_id"
-  end
-
-  create_table "tests", force: :cascade do |t|
-    t.string "test"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "videos", force: :cascade do |t|
     t.string "titulo"
     t.string "canal"
@@ -68,5 +42,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_17_194222) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "resumes", "chats"
 end
