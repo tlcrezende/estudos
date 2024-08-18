@@ -1,0 +1,6 @@
+
+<%= turbo_stream_from 'chats' %>
+
+<div id='ongoing_chat'>
+  <%= render partial: "chat", locals: { chat: @chat } %>
+</div>

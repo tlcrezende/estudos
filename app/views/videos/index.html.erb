@@ -1,0 +1,14 @@
+<div class="w-full">
+  <div class="w-full flex justify-center items-center text-center mt-6">
+    <h1 class="font-bold text-4xl text-white">Gerenciador de Videos</h1>
+  </div>
+  <%= link_to "Adicionar vídeo", new_video_path, class: "fixed top-4 right-4 rounded-lg py-3 px-5 bg-purple-600 text-white font-medium" %>
+
+  <div id="videos" class="grid grid-cols-4 gap-4 mt-4">
+    <% @videos.each do |video| %>
+      <div class="col-span-1">
+        <%= render video %>
+      </div>
+    <% end %>
+  </div>
+</div>

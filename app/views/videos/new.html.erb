@@ -1,0 +1,22 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="font-bold text-4xl text-white">Novo video</h1>
+
+  <%= form_with(model: Video.new, class: "contents") do |form| %>
+    <div class="my-5">
+      <%= form.label :youtube_id, "Link do youtube", class: 'text-white' %>
+      <%= form.text_field :youtube_id %>
+    </div>
+
+    <div class="my-5">
+      <%= form.label :desejo, class: 'text-white' %>
+      <%= form.collection_select :desejo, Video.desejos.keys, :to_s, :humanize, include_blank: true  %>
+    </div>
+
+    <div class="inline">
+      <%= form.submit 'Adicionar Vídeo',  class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    </div>
+  <% end %>
+
+
+  <%= link_to "Voltar", videos_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+</div>

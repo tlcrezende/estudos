@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= Rails.application.credentials.dig(:database, :url) %>
+  prepared_statements: false
+  advisory_locks: false
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= Rails.application.credentials.dig(:database, :url) %>
+  prepared_statements: false
+  advisory_locks: false

@@ -1,0 +1,12 @@
+<div id="<%= dom_id video %>">
+  <iframe width="<%= 560*2/3 %>" height="<%= 315*2/3 %>" src=<%="https://www.youtube.com/embed/#{video.youtube_id}"%> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div class="flex w-full justify-center my-1 text-center items-center">
+    <% (2 - Video.desejos[video.desejo]).times do %>
+      <%= image_tag 'fire.svg' , style: 'pointer-events: none;' %>
+    <% end %>
+    <div class="font-medium mb-1 text-white mx-2"><%= video.titulo %> - <%= video.canal %></div>
+    <%= form_with(model: video) do |form| %>
+      <%= form.check_box :assistido, class: 'ml-2' %>
+    <% end %>
+  </div>
+</div>
