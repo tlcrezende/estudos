@@ -2,11 +2,11 @@ development:
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  # # Local
-  # host: localhost
-  # username: thiago
-  # password: postgres
-  # database: estudos_local
+  # Local
+  host: localhost
+  username: thiago
+  password: postgres
+  database: estudos_local
   # Supabase
-  url: <%= Rails.application.credentials.dig(:database, :url) %>
+  # url: <%= Rails.application.credentials.dig(:database, :url) %>
 

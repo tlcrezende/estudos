@@ -1,6 +1,11 @@
 <div class="w-full">
   <div class="w-full flex justify-center items-center text-center mt-6">
-    <h1 class="font-bold text-4xl text-white">Gerenciador de Videos</h1>
+    <div class='flex space-x-6'>
+      <div class="font-bold text-4xl text-white">Gerenciador de Videos</div>
+      <div class='flex ml-4 text-lg'>
+        <div class='w-7 h-7 bg-yellow-200 rounded-full'><%= @videos.count %></div>
+      </div>
+    </div>
   </div>
   <%= link_to "Adicionar vídeo", new_video_path, class: "fixed top-4 right-4 rounded-lg py-3 px-5 bg-fuchsia-600 text-white font-medium" %>
 
