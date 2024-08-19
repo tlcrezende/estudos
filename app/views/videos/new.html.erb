@@ -12,6 +12,11 @@
       <%= form.collection_select :desejo, Video.desejos.keys, :to_s, :humanize, include_blank: true  %>
     </div>
 
+    <div class="my-5">
+      <%= form.label :framwork, class: 'text-white' %>
+      <%= form.collection_select :framwork, Video.frameworks.keys, :to_s, :humanize, include_blank: true  %>
+    </div>
+
     <div class="inline">
       <%= form.submit 'Adicionar Vídeo',  class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
     </div>

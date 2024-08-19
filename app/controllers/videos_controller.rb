@@ -1,9 +1,11 @@
 class VideosController < ApplicationController
   before_action :set_video, only: %i[ show edit update destroy ]
 
-  # GET /videos or /videos.json
   def index
     @videos = Video.all.nao_assistidos.order(:created_at)
+    if params[:framework].present? 
+      @videos = Video.where(framework: params[:framework]).nao_assistidos.order(:created_at)
+    end
   end
 
   # GET /videos/1 or /videos/1.json
